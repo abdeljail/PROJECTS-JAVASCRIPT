@@ -56,43 +56,42 @@ let add_class_element = (element) => element.classList.add("not_click")
 // create funtion remove class in elment
 let remove_class_element = (element) => element.classList.remove("not_click")
 
+// create function change check and add class add in element
+let check_add_element = (element) => {
+  add_class_element(element)
+  element.dataset.check = "off"
+}
+
+// create function change check and remove class add in element
+let check_remove_element = (element) => {
+  remove_class_element(element)
+  element.dataset.check = "on"
+}
+
+
 change_info_user(counter)
 
 btn_left.addEventListener("click", () => {
   if (counter <= 0) return;
 
-  if (btn_right.dataset.check === "off") {
-    btn_right.dataset.check = "on"
-    remove_class_element(btn_right)
-  }
+  if (btn_right.dataset.check === "off") check_remove_element(btn_right)
 
   counter--
 
   change_info_user(counter);
 
-  if (counter <= 0) {
-    add_class_element(btn_left)
-    btn_left.dataset.check = "off"
-    return;
-  }
+  if (counter <= 0) check_add_element(btn_left)
 })
 btn_right.addEventListener("click", () => {
 
   if (counter >= data_users.length - 1) return;
 
-  if (btn_left.dataset.check === "off") {
-    btn_left.dataset.check = "on"
-    remove_class_element(btn_left)
-  }
+  if (btn_left.dataset.check === "off")  check_remove_element(btn_left)
 
   counter++
 
   change_info_user(counter);
 
-  if (counter >= data_users.length - 1) {
-    btn_right.dataset.check = "off"
-    add_class_element(btn_right)
-    return;
-  }
+  if (counter >= data_users.length - 1) check_add_element(btn_right)
 
 })
