@@ -17,9 +17,9 @@ const toggle_class_element = (element, name_class) => {
 
 close_model.addEventListener("click",()=>{
     remove_class_element(overly,"overly")
-    remove_class_element(overly.firstElementChild,"show")
+   
 })
 open_model.addEventListener("click",()=>{
     add_class_element(overly,"overly")
-    add_class_element(overly.firstElementChild,"show")
+    
 })
