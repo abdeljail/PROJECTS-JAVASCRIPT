@@ -132,7 +132,7 @@ let print_food = (arrary) => {
 
 
 
-print_food(filter_food("all"));
+// print_food(filter_food("all"));
 
 // for for button filter food in menu 
 

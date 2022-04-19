@@ -76,7 +76,7 @@ h1 ~ div button.active-btn{
   background-color: rgb(0 30 58 / 31%);
   border: 16px solid  rgb(0 30 58 / 31%);
   border-left-color: rgb(0 30 58) ;
-  animation: loading 1s linear infinite ;
+  animation: loading 1s cubic-bezier(.51,.92,.24,1.15) infinite  ;
 }
 @keyframes loading{
   0%{
