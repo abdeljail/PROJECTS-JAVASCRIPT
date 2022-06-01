@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  min-width: 200px;
+  margin: 0 auto;
+}
+
+
+.container.c-header {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: inherit;
+}
+
+header {
+  background-color: #000c18f2;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+header .top-header {
+  display: grid;
+  grid-template-areas: "logo logo logo nav nav nav nav nav nav nav ";
+  padding: 10px;
+  top: -100px;
+  transition: 0.3s ease-out;
+}
+
+header .top-header .logo {
+  grid-column: logo;
+}
+
+
+header .top-header .logo h1 {
+  color: #009688;
+  text-transform: uppercase;
+}
+
+header .top-header nav {
+  grid-column: nav;
+  align-self: end;
+}
+
+header .top-header nav .nav {
+  display: grid;
+  justify-content: end;
+  grid-template-columns: repeat(4, auto);
+  gap: 20px;
+}
+
+header .top-header nav .nav li {
+  list-style: none;
+  padding: 10px;
+  align-self: end;
+  color: #ffffff;
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header .bottom-header {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  max-width: 500px;
+  min-width: 200px;
+}
+
+header .bottom-header h2 {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 500;
+}
+
+header .bottom-header h2,
+header .bottom-header p {
+  color: #ffffff;
+  padding: 10px 0;
+}
+
+header .bottom-header p {
+  line-height: 1.8;
+}
+
+
+section {
+  padding: 100px 0;
+  height: 500px;
+
+}
+
+
+section:nth-child(odd) {
+  background-color: #000c18f2;
+
+}
+
+
+section h2 {
+  text-align: center;
+  padding: 20px 0;
+  text-transform: uppercase;
+}
+
+
+section:nth-child(odd) {
+  color: #ffffff;
+}
+
+footer {
+  background-color: #000c18f2;
+}
+
+footer div {
+  padding: 10px 0;
+  background-color: #041d36f2;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+footer div:hover {
+  background-color: #009688;
+}
+
+footer p {
+  color: #ffffff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.scroll-top-header {
+  left: 0;
+  right: 0;
+  top: 0 !important;
+  position: fixed;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px -1px #011728;
+  padding: 10px 20px;
+}
+.scroll-top-header nav .nav li {
+  color: #000c18f2 !important;
+}
