@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+
+
+:root {
+    --color-one: #2563EB;
+    --color-two: #ffffff;
+    --border-color-one: #9CA3AF;
+    --border-color-two: var(--color-one);
+    --bg: #1F2937;
+    --box-shadow: 0 4px var(--color-two);
+    --text-transform-c: capitalize;
+    --text-transform-u: uppercase
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 5000px
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+body {
+    background-color: var(--bg);
+}
+
+.model {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000061;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity .1s linear
+}
+
+.model.show {
+    z-index: 0;
+    opacity: 1
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+}
+
+.container-app {
+    width: 600px;
+    margin: 0 auto;
+    /* background-color: #111827; */
+}
+
+button::after {
+    content: attr(data-name);
+}
+
+button.click.add {
+    text-align: center;
+    pointer-events: none;
+}
+
+
+button.click.add::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border-left-color: transparent;
+    display: inline-block;
+    border-style: solid;
+    animation: loding 1s linear infinite;
+}
+
+button.click.add:hover {
+    background-color: inherit !important;
+}
+
+@keyframes loding {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.header-app {
+    padding: 20px 0;
+    text-transform: var(--text-transform-c);
+}
+
+.header-app h1 {
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-two);
+}
+
+.content-app>* {
+    padding: 20px 20px;
+}
+
+.content-app .count-task {
+    font-weight: 700;
+    color: var(--color-two);
+    text-transform: var(--text-transform-c);
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-app .add-task {
+    padding: 20px 20px;
+    border: 2px solid var(--border-color-one);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-app .add-task div:first-child {
+    flex-grow: 2;
+}
+
+.content-app .add-task div:last-child {
+    flex-grow: 1;
+    text-align: end;
+}
+
+.content-app .add-task input {
+    padding: 20px 12px;
+    color: var(--color-two);
+    font-size: 18px;
+    background: none;
+    text-transform: var(--text-transform-c);
+    font-weight: 700;
+    width: 100%;
+}
+
+.content-app .add-task input::placeholder {
+    color: var(--color-two);
+    transition: opacity .2s linear;
+}
+
+.content-app .add-task input:focus::placeholder {
+    opacity: 0;
+}
+
+.content-app .add-task button {
+    padding: 20px 12px;
+    color: var(--color-two);
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 10px;
+    background: none;
+    text-transform: var(--text-transform-u);
+    border: 1.9px solid var(--color-two);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: background-color .2s ease, border .2s ease-in;
+}
+
+.content-app .add-task button:hover {
+    background-color: var(--color-one);
+}
+
+.content-app .add-task button.click {
+    border-color: var(--color-one);
+    box-shadow: 0 4px var(--color-one);
+    width: 121px;
+}
+
+.content-app .add-task button.click::after {
+    border-top-color: var(--color-one);
+    border-right-color: var(--color-one);
+    border-bottom-color: var(--color-one);
+    border-width: 3px;
+}
+
+
+
+
+.container-app .box-tasks {
+    background-color: #000102;
+    border: 2px solid var(--border-color-one);
+    padding: 20px 20px;
+    border-radius: 6px;
+    min-height: 400px;
+    max-height: 600px;
+    overflow: auto;
+}
+
+.container-app .box-tasks .item-task {
+    padding: 20px 20px;
+    background-color: var(--bg);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    border-bottom: 4px solid;
+}
+
+.container-app .box-tasks .item-task.save {
+    border-color: var(--color-one);
+}
+
+.container-app .box-tasks .item-task.no-save {
+    border-color: #FFC107;
+}
+
+.container-app .box-tasks .item-task div:first-child {
+    flex-basis: 75%;
+}
+
+.container-app .box-tasks .item-task div:last-child {
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: normal;
+}
+
+.container-app .box-tasks .item-task p {
+    color: var(--color-two);
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.container-app .box-tasks .item-task span {
+    color: var(--color-two);
+    background-color: var(--color-one);
+    padding: 10px 12px;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 2px solid #0d46c2;
+    font-size: 10px;
+}
+
+.container-app .box-tasks .item-task div:last-child button {
+    padding: 10px 12px;
+    color: var(--color-two);
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    background: none;
+    text-transform: var(--text-transform-c);
+    cursor: pointer;
+    transition: background-color .2s ease, border .2s ease-in;
+    margin: 10px 0;
+    align-self: inherit;
+}
+
+.container-app .box-tasks .item-task div:last-child button:hover {
+    border: 1.9px solid var(--color-two) !important;
+    box-shadow: var(--box-shadow) !important;
+}
+
+
+.container-app .box-tasks .item-task div:last-child button:last-child {
+    border: 1.9px solid #F43F5E;
+    box-shadow: 0 4px #F43F5E;
+}
+
+.container-app .box-tasks .item-task div:last-child button:last-child:hover {
+    background-color: #F43F5E;
+}
+
+.container-app .btn-save {
+    background-color: #000102;
+    border: 2px solid var(--border-color-one);
+    padding: 20px 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-app .btn-save button {
+    padding: 20px 12px;
+    color: var(--color-two);
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 10px;
+    background: none;
+    text-transform: var(--text-transform-u);
+    border: 1.9px solid;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: background-color .2s ease, border .2s ease-in;
+    border-color: var(--color-one);
+    box-shadow: 0 4px var(--color-one);
+    flex-grow: 1;
+    cursor: not-allowed;
+
+}
+
+.container-app .btn-save button:hover {
+    background-color: var(--color-one);
+}
+
+.container-app .btn-save button.save {
+    cursor: pointer !important;
+}
+
+.container-app .btn-save button.click::after {
+    border-color: var(--color-one) var(--color-one) var(--color-one) transparent;
+    border-width: 8px;
+}
+
+
+
+/* start div class message */
+
+
+.message {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-20%) scale(0, 0);
+    left: 0%;
+    width: 100%;
+    height: 200px;
+    transition: .2s ease-in-out;
+}
+
+.message.error {
+    background-color: #F43F5E;
+    border-top: #a10922;
+    border-top-width: 2px;
+    border-top-style: solid;
+    transform: translateY(calc(100% - 85px)) scale(1, 1);
+}
+
+.message.seccess {
+    background-color: rgb(163, 230, 53);
+    top: 0%;
+    transform: translateY(0) scale(1, 1);
+    border-bottom: rgb(109, 168, 14);
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+.message .content-message {
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    height: inherit;
+    flex-direction: column;
+}
+
+.message .content-message div:first-child {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.message .content-message div:last-child {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.message .content-message h3 {
+    font-size: 40px;
+    color: var(--color-two);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.message .content-message span {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-one);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: .3s ease-out border, .3s ease-out box-shadow, .3s ease-out background-color;
+    box-shadow: 0 4px transparent;
+    border: 2px solid transparent;
+}
+
+.message .content-message span:hover {
+    box-shadow: 0 4px var(--color-one);
+    border-color: var(--color-one);
+    background-color: transparent;
+}
+
+.message .content-message span svg {
+    width: 30px;
+    fill: var(--color-two);
+    transition: .3s ease-out;
+}
+
+.message .content-message span:hover svg {
+    transform: scale(.8, .8);
+    color: var(--color-one);
+}
+
+/* end div class message */
+
+
+/* Start div class remove-item */
+
+
+.remove-item {
+    position: fixed;
+    width: 500px;
+    min-height: 220px;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    z-index: 2;
+    padding: 20px;
+    box-shadow: -14px -16px 0px 0px #F43F5E;
+    transition: box-shadow 0.2s ease, transform .4s .2s ease;
+    transform: translate(-40%, -50%) scale(0, 0);
+}
+
+.remove-item:hover {
+    box-shadow: 0px 0px 0px 10px #F43F5E;
+}
+
+.remove-item.show {
+    transform: translate(-50%, -50%) scale(1, 1);
+}
+
+
+.remove-item>div:first-child {
+    padding: 15px 5px;
+}
+
+
+.remove-item>div:first-child h4 {
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.remove-item>div:nth-child(2),
+.remove-item>div:last-child {
+    padding: 15px 30px;
+}
+
+
+.remove-item>div:nth-child(2) label {
+    padding: 10px 16px;
+    border: 2px solid #0d46c2;
+    display: block;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.remove-item>div:nth-child(2) label.active {
+    background-color: #0d46c24b;
+}
+
+.remove-item>div:nth-child(2) label strong {
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize
+}
+
+.remove-item>div:nth-child(2) label.active strong {
+    color: var(--bg);
+}
+
+
+.remove-item>div:last-child {
+    display: flex;
+    justify-content: end;
+}
+
+.remove-item>div:last-child button {
+    padding: 10px 12px;
+    font-weight: 700;
+    font-size: 18px;
+    background: none;
+    display: block;
+    text-transform: var(--text-transform-u);
+    border-radius: 10px;
+    width: 160px;
+    border: 1.9px solid var(--border-color-one);
+}
+
+.remove-item>div:last-child button.show {
+    color: #F43F5E;
+    border-color: #F43F5E;
+    cursor: pointer;
+    transition: box-shadow .2s ease, width .5s ease-in;
+}
+
+.remove-item>div:last-child button.show:hover {
+    box-shadow: 1px 2px 9px #F43F5E;
+}
+
+.remove-item>div:last-child button.click-delete {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    pointer-events: none;
+}
+
+
+.remove-item>div:last-child button::before {
+    opacity: 0;
+    content: "";
+    display: block;
+    transition: opacity .2s ease-in .8s !important;
+}
+
+
+.remove-item>div:last-child button.click-delete::before {
+    border: 6px solid #f43f5d6c;
+    border-top-color: #f43f5d;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    animation: loding .65s linear infinite;
+
+}
+
+/* End div class remove-item */
